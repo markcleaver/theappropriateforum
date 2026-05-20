@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Appropriate Forum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --off-black: #1a1a18;
+    --warm-white: #f5f0e8;
+    --terracotta: #c4704b;
+    --teal: #2a7c7f;
+    --text: #d4cfc4;
+    --text-muted: #8a857a;
+  }
+
+  body {
+    background: var(--off-black);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    text-align: center;
+    padding: 60px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(196,112,75,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .crest {
+    max-width: 550px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto 32px;
+    display: block;
+  }
+
+  .hero-title {
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--warm-white);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-style: italic;
+    font-size: clamp(15px, 2.5vw, 20px);
+    color: var(--terracotta);
+    letter-spacing: 3px;
+  }
+
+  .hero-rule {
+    width: 80px;
+    border: none;
+    border-top: 1px solid var(--terracotta);
+    margin: 28px auto 0;
+    opacity: 0.5;
+  }
+
+  /* ========== NEWSPAPER ========== */
+  .newspaper-section {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+  }
+
+  .newspaper-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow:
+      0 4px 40px rgba(0,0,0,0.4),
+      0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  /* ========== SIGNUP ========== */
+  .signup-section {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    text-align: center;
+  }
+
+  .signup-rule {
+    width: 60px;
+    border: none;
+    border-top: 1px solid var(--teal);
+    margin: 0 auto 36px;
+    opacity: 0.4;
+  }
+
+  .signup-heading {
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--warm-white);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+
+  .signup-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .signup-input {
+    width: 100%;
+    max-width: 380px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+
+  .signup-input::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .signup-input:focus {
+    outline: none;
+    border-color: var(--terracotta);
+  }
+
+  .signup-button {
+    padding: 14px 40px;
+    background: var(--terracotta);
+    color: var(--warm-white);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 4px;
+  }
+
+  .signup-button:hover {
+    background: #d4804b;
+    transform: translateY(-1px);
+  }
+
+  .signup-button:active {
+    transform: translateY(0);
+  }
+
+  .signup-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .signup-success {
+    display: none;
+    color: var(--teal);
+    font-size: 18px;
+    font-style: italic;
+    padding: 20px 0;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    text-align: center;
+    padding: 30px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 500px) {
+    .hero { padding: 40px 16px 28px; }
+    .newspaper-section { padding: 16px 16px 32px; }
+    .signup-section { padding: 32px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="modern coat of arms appropriate forum.png" alt="The Appropriate Forum" class="crest">
+  <h1 class="hero-title">The Appropriate Forum</h1>
+  <p class="hero-subtitle">All the News That's Fit to Think About</p>
+  <hr class="hero-rule">
+</section>
+
+<!-- NEWSPAPER -->
+<section class="newspaper-section">
+  <img
+    src="appropriate forum final.png"
+    alt="'Person Needs Economics Lesson' Says Economist Who Needs Lesson In People — The Appropriate Forum"
+    class="newspaper-img"
+  >
+</section>
+
+<!-- SIGNUP -->
+<section class="signup-section">
+  <hr class="signup-rule">
+  <h2 class="signup-heading">Stay Informed</h2>
+  <p class="signup-text">New editions whenever the profession gives us reason to publish. Which, regrettably, is often.</p>
+
+  <form class="signup-form" id="signupForm" onsubmit="handleSignup(event)">
+    <input type="text" class="signup-input" placeholder="First name" required id="nameInput">
+    <input type="email" class="signup-input" placeholder="Email address" required id="emailInput">
+    <button type="submit" class="signup-button">Subscribe</button>
+    <p class="signup-note">No spam. Just uncomfortable truths, occasionally.</p>
+  </form>
+
+  <p class="signup-success" id="signupSuccess">Thank you. We'll be in touch — regrettably, probably soon.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  &copy; 2026 The Appropriate Forum
+</footer>
+
+<script>
+function handleSignup(e) {
+  e.preventDefault();
+  var name = document.getElementById('nameInput').value;
+  var email = document.getElementById('emailInput').value;
+
+  // For now, log to console. Replace with your email service (Mailchimp, ConvertKit, etc.)
+  console.log('Signup:', name, email);
+
+  // Show success message
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('signupSuccess').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
