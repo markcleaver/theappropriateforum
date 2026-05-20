@@ -237,35 +237,21 @@
   <h2 class="signup-heading">Stay Informed</h2>
   <p class="signup-text">New editions whenever the profession gives us reason to publish. Which, regrettably, is often.</p>
 
-  <form class="signup-form" id="signupForm" onsubmit="handleSignup(event)">
-    <input type="text" class="signup-input" placeholder="First name" required id="nameInput">
-    <input type="email" class="signup-input" placeholder="Email address" required id="emailInput">
+  <form class="signup-form" id="signupForm" action="https://formsubmit.co/markcleavertutor@gmail.com" method="POST">
+    <input type="text" name="name" class="signup-input" placeholder="First name" required>
+    <input type="email" name="email" class="signup-input" placeholder="Email address" required>
+    <input type="hidden" name="_subject" value="New Appropriate Forum subscriber">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://theappropriateforum.com/thanks.html">
     <button type="submit" class="signup-button">Subscribe</button>
     <p class="signup-note">No spam. Just uncomfortable truths, occasionally.</p>
   </form>
-
-  <p class="signup-success" id="signupSuccess">Thank you. We'll be in touch — regrettably, probably soon.</p>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   &copy; 2026 The Appropriate Forum
 </footer>
-
-<script>
-function handleSignup(e) {
-  e.preventDefault();
-  var name = document.getElementById('nameInput').value;
-  var email = document.getElementById('emailInput').value;
-
-  // For now, log to console. Replace with your email service (Mailchimp, ConvertKit, etc.)
-  console.log('Signup:', name, email);
-
-  // Show success message
-  document.getElementById('signupForm').style.display = 'none';
-  document.getElementById('signupSuccess').style.display = 'block';
-}
-</script>
 
 </body>
 </html>
