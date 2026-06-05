@@ -51,20 +51,98 @@
     display: block;
   }
 
-  /* ========== NEWSPAPER ========== */
-  .newspaper-section {
-    max-width: 750px;
+  /* ========== PUBLICATIONS ========== */
+  .publications {
+    max-width: 800px;
     margin: 0 auto;
-    padding: 20px 24px 40px;
+    padding: 0 24px 40px;
   }
 
-  .newspaper-img {
+  .publications-heading {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .publications-subtitle {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+
+  .pub-card {
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.3s;
+  }
+
+  .pub-card:hover {
+    border-color: rgba(196,112,75,0.3);
+  }
+
+  .pub-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .pub-card-image {
     width: 100%;
     height: auto;
     display: block;
-    box-shadow:
-      0 4px 40px rgba(0,0,0,0.4),
-      0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .pub-card-body {
+    padding: 24px;
+  }
+
+  .pub-card-label {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 11px;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .pub-card-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--warm-white);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .pub-card-desc {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .pub-card-cta {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 13px;
+    color: var(--terracotta);
+    margin-top: 14px;
+    letter-spacing: 1px;
+  }
+
+  .pub-card-cta::after {
+    content: ' â';
   }
 
   /* ========== SIGNUP ========== */
@@ -165,14 +243,6 @@
     opacity: 0.7;
   }
 
-  .signup-success {
-    display: none;
-    color: var(--teal);
-    font-size: 18px;
-    font-style: italic;
-    padding: 20px 0;
-  }
-
   /* ========== FOOTER ========== */
   .footer {
     font-family: 'Libre Baskerville', Georgia, serif;
@@ -187,8 +257,9 @@
   /* ========== RESPONSIVE ========== */
   @media (max-width: 500px) {
     .hero { padding: 40px 16px 28px; }
-    .newspaper-section { padding: 16px 16px 32px; }
+    .publications { padding: 0 16px 32px; }
     .signup-section { padding: 32px 16px 60px; }
+    .pub-card-body { padding: 18px; }
   }
 </style>
 </head>
@@ -199,13 +270,40 @@
   <img src="modern coat of arms appropriate forum.png" alt="The Appropriate Forum" class="crest">
 </section>
 
-<!-- NEWSPAPER -->
-<section class="newspaper-section">
-  <img
-    src="appropriate forum final.png"
-    alt="'Person Needs Economics Lesson' Says Economist Who Needs Lesson In People â The Appropriate Forum"
-    class="newspaper-img"
-  >
+<!-- PUBLICATIONS -->
+<section class="publications">
+  <h2 class="publications-heading">Publications</h2>
+  <p class="publications-subtitle">Peer-reviewed by no one. Cited by fewer.</p>
+
+  <!-- EDUCATION STUDY (NEWEST) -->
+  <article class="pub-card">
+    <a href="TAF_Education-Study_v1.pdf" target="_blank">
+      <div class="pub-card-body">
+        <p class="pub-card-label">Vol. 1, No. 3 &mdash; Journal Article</p>
+        <h3 class="pub-card-title">Every Pedagogy Works in the Right Classroom and No Pedagogy Works in All of Them</h3>
+        <p class="pub-card-desc">A Conditions-Adjusted Meta-Analysis of Educational Interventions and the Teachers Who Were Never Asked.</p>
+        <p class="pub-card-cta">Read the study (PDF)</p>
+      </div>
+    </a>
+  </article>
+
+  <!-- NEWSPAPER ARTICLE (ORIGINAL) -->
+  <article class="pub-card">
+    <a href="appropriate forum final.png" target="_blank">
+      <img
+        src="appropriate forum final.png"
+        alt="'Person Needs Economics Lesson' Says Economist Who Needs Lesson In People â The Appropriate Forum"
+        class="pub-card-image"
+      >
+      <div class="pub-card-body">
+        <p class="pub-card-label">Vol. 1, No. 1 &mdash; Front Page</p>
+        <h3 class="pub-card-title">'Person Needs Economics Lesson' Says Economist Who Needs Lesson In People</h3>
+        <p class="pub-card-desc">Our inaugural edition. Cloudy with a chance of irony.</p>
+        <p class="pub-card-cta">View full article</p>
+      </div>
+    </a>
+  </article>
+
 </section>
 
 <!-- SIGNUP -->
